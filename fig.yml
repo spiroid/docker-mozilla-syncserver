@@ -1,0 +1,9 @@
+web:
+    build: syncserver
+    ports:
+        - 5000:5000
+    volumes_from:
+        - syncserverdata
+
+syncserverdata:
+    build: syncserver-data
