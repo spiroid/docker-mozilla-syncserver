@@ -1,10 +1,10 @@
 # Docker - Mozilla Sync Server
 
-[Mozilla Sync server](https://github.com/mozilla-services/syncserver) images for Docker.
+[Mozilla Sync server](https://github.com/mozilla-services/syncserver) image for Docker.
 For use with [Docker](http://docker.io)
 
 All suggestions and contributions are very welcome.
-There is a room for tons of improvements, so please feel free to open issues and pull requests to help improve these images.
+There is a room for improvements, so please feel free to open issues and pull requests to help improve these images.
 
 
 ## Getting stared
@@ -24,25 +24,35 @@ There is a room for tons of improvements, so please feel free to open issues and
 This builds two docker elements :
 
 * One image with the latest version of the sync server in standalone mode
-* A data-only container volume to persist data between different containers (sqlite db)
+* A [data volume container](https://docs.docker.com/userguide/dockervolumes/) to persist data between different containers (sqlite db)
 
 
-## Build
+## Instruction
 
-### Building manually
+### With docker directly
+
+ * Build the syncserver image
 
 Replace ```<your pseudo>``` by a prefix you want to appear in your local docker image registry.
 
 ```
-$ docker build -t <your pseudo>/syncserver-data ./syncserver-data
-$ docker build -t <your pseudo>/syncserver ./syncserver
+  $ docker build -t <your pseudo>/syncserver ./syncserver
 ```
 
-**OR**
+ * Run
 
-## Run with [fig](http://www.fig.sh/)
+```
+  $ docker run -v /data --name syncserverdata busybox
+  $ docker run -d -p 5000:5000 --volumes-from syncserverdata --name syncserver <your pseudo>/syncserver
+```
 
-As simple as :
+
+### With [fig](http://www.fig.sh/)
+
+Follow the instructions as described on the [fig documentation page](http://www.fig.sh/install.html)  
+My favorite install method: `$ sudo pip install -U fig`.
+
+Then, getting the container to build and run becomes be as easy as:
 
 ```
   $ fig up
