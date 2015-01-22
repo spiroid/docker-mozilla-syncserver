@@ -29,17 +29,13 @@ RUN apt-get install -q -y ca-certificates \
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Add a user to run the sync server
-RUN useradd --create-home syncserver
-USER syncserver
-
 # Get the latest version at https://github.com/mozilla-services/syncserver and run the build command
-RUN cd /home/syncserver && git clone https://github.com/mozilla-services/syncserver
-WORKDIR /home/syncserver/syncserver
+RUN cd /usr/local/share && git clone https://github.com/mozilla-services/syncserver
+WORKDIR /usr/local/share/syncserver
 RUN make build
 
 # Add the configuration file
-ADD resources/syncserver.ini /home/syncserver/syncserver/syncserver.ini
+ADD resources/syncserver.ini /usr/local/share/syncserver/syncserver.ini
 
 # Run the Sync server
 EXPOSE 5000

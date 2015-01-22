@@ -6,4 +6,6 @@ web:
         - syncserverdata
 
 syncserverdata:
-    build: syncserver-data
+    image: busybox
+    volumes:
+        - /data
