@@ -6,6 +6,12 @@ For use with [Docker](http://docker.io)
 All suggestions and contributions are very welcome.
 There is a room for improvements, so please feel free to open issues and pull requests to help improve these images.
 
+## Disclamer
+
+This image configures a very light sync server that stores data in a sqlite db and uses the built-in server. As stated on the server's documentation page: 
+>  it does not really support a lot of load
+
+You will almost certainly want to configure another database and / or serve the content with gunicorn. I plan to add instructions and configuration files to achieve that with this docker image.
 
 ## Getting stared
 
