@@ -8,7 +8,7 @@ There is a room for improvements, so please feel free to open issues and pull re
 
 ## Disclamer
 
-This image configures a very light sync server that stores data in a sqlite db and uses the built-in server. As stated on the server's documentation page: 
+This image configures a very light sync server that stores data in a sqlite db and uses the built-in server. As stated on the [server's documentation page](https://docs.services.mozilla.com/howtos/run-sync-1.5.html): 
 >  it does not really support a lot of load
 
 You will almost certainly want to configure another database and / or serve the content with gunicorn. I plan to add instructions and configuration files to achieve that with this docker image.
