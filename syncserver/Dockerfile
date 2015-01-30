@@ -1,4 +1,4 @@
-FROM debian:testing
+FROM debian:stable
 
 MAINTAINER Jonathan Dray <jonathan.dray@gmail.com>
 
@@ -20,7 +20,6 @@ RUN apt-get install -q -y ca-certificates \
     build-essential \
     libzmq-dev \
     python-dev \
-    virtualenv \
     python-virtualenv \
     git-core
 
