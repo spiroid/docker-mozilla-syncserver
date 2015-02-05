@@ -34,9 +34,11 @@ WORKDIR /usr/local/share/syncserver
 RUN make build
 
 # Add the configuration file
-ADD resources/syncserver.ini /usr/local/share/syncserver/syncserver.ini
+RUN mkdir /usr/local/share/config
+ADD resources/syncserver.ini /usr/local/share/config/syncserver.ini
 
 # Run the Sync server
 EXPOSE 5000
-ENTRYPOINT ["/usr/bin/make"]
-CMD ["serve"]
+VOLUME ["/data", "/usr/local/share/config"]
+ENTRYPOINT ["/usr/local/share/syncserver/local/bin/pserve"]
+CMD ["/usr/local/share/config/syncserver.ini"]
