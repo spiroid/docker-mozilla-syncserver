@@ -33,7 +33,7 @@ This builds two docker elements :
 * A [data volume container](https://docs.docker.com/userguide/dockervolumes/) to persist data between different containers (sqlite db)
 
 
-## Instruction
+## Instructions
 
 ### With docker directly
 
@@ -63,3 +63,7 @@ Then, getting the container to build and run becomes be as easy as:
 ```
   $ fig up
 ```
+
+## License
+
+See [LICENSE](LICENSE) file.
