@@ -1,0 +1,13 @@
+version: '2'
+
+volumes:
+    syncdata:
+        driver: local
+
+services:
+    web:
+        build: syncserver
+        ports:
+            - "5000:5000"
+        volumes:
+            - syncdata:/data
