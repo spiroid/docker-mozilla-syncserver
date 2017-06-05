@@ -6,7 +6,7 @@ volumes:
 
 services:
     web:
-        build: syncserver
+        build: .
         ports:
             - "5000:5000"
         volumes:
